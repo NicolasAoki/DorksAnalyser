@@ -26,24 +26,23 @@ def argumentosPermitidos():
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[2:], "ho:v", ["help", "output="])
+        opts, args = getopt.getopt(sys.argv[2:], "hosd")
         site = sys.argv[1]
-        if len(sys.argv) == 2:
-            argumentosPermitidos()
-            sys.exit()
     except getopt.GetoptError as err:
         # print help information and exit:
         print(str(err)) # "option -a not recognized"
         argumentosPermitidos()
         sys.exit(2)
     for o, a in opts:
-        if o == "-v":
+        if o == ("-s"):
             result_gcs(google_search(site, api_key, cse_id, num=2))
-        elif o in ("-h", "--help"):
+        elif o in ("-h"):
             argumentosPermitidos()
             sys.exit()
-        elif o in ("-o", "--output"):
-            output = a
+        elif o in ("-d"):
+            print("teste")
+        elif o in ("-o"):
+            print("teste")
         else:
             assert False, "unhandled option"
     # ...
