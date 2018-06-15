@@ -22,7 +22,7 @@ def result_gcs(results):
         #print (dis)
 
 def argumentosPermitidos():
-    print("Modo de usar: exemplo.com [-h] ou [-v]")
+    print("Modo de usar: exemplo.com ajuda[-h] ou busca[-s]")
 
 def main():
     try:
