@@ -35,13 +35,13 @@ def result_gcs(results):
         print(link)
 
 def argumentosPermitidos():
-    asci = """ 
-    ____             __           ______
-   / __ \____  _____/ /_______   / ____/___ ________  __
-  / / / / __ \/ ___/ //_/ ___/  / __/ / __ `/ ___/ / / /
- / /_/ / /_/ / /  / ,< (__  )  / /___/ /_/ (__  ) /_/ /
-/_____/\____/_/  /_/|_/____/  /_____/\__,_/____/\__, /
-                                               /____/"""
+    asci = """     ____             __           ___                __                    
+   / __ \____  _____/ /_______   /   |  ____  ____ _/ /_  __________  _____
+  / / / / __ \/ ___/ //_/ ___/  / /| | / __ \/ __ `/ / / / / ___/ _ \/ ___/
+ / /_/ / /_/ / /  / ,< (__  )  / ___ |/ / / / /_/ / / /_/ (__  )  __/ /    
+/_____/\____/_/  /_/|_/____/  /_/  |_/_/ /_/\__,_/_/\__, /____/\___/_/     
+                                                   /____/                  
+"""
     print(asci)
     print("Modo de usar: exemplo.com ajuda[-h] , busca[-s] \n FalhaSql[-q] , inurl[-u] , filetype[-f]")
 
@@ -65,8 +65,6 @@ def main():
         opts, args = getopt.getopt(sys.argv[2:], "hosdq")
         site = sys.argv[1]
         site = "inurl:"+site
-        if(site == '-h' or 'help' or '-help'):
-            argumentosPermitidos()
     except getopt.GetoptError as err:
         #     printa erro "option -X not recognized"
         print(str(err))
@@ -92,7 +90,6 @@ def main():
             SqlDork(site)
         else:
             assert False, "unhandled option"
-    # ...
 
 if __name__ == "__main__":
     main()
