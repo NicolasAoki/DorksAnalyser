@@ -6,7 +6,7 @@
 
 ## Uso do software
 
-exemplo.com ajuda[-h] , busca[-s] \n FalhaSql[-q] 
+exemplo.com ajuda[-h] , busca[-s] , FalhaSql[-q] 
 
 ## Requerimento
 
