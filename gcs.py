@@ -35,14 +35,15 @@ def result_gcs(results):
         print(link)
 
 def argumentosPermitidos():
-    asci = """    ____             __           ______
+    asci = """ 
+    ____             __           ______
    / __ \____  _____/ /_______   / ____/___ ________  __
   / / / / __ \/ ___/ //_/ ___/  / __/ / __ `/ ___/ / / /
  / /_/ / /_/ / /  / ,< (__  )  / /___/ /_/ (__  ) /_/ /
 /_____/\____/_/  /_/|_/____/  /_____/\__,_/____/\__, /
                                                /____/"""
     print(asci)
-    print("Modo de usar: exemplo.com ajuda[-h] , busca[-s] \n Sql[-q] , inurl[-u] , filetype[-f]")
+    print("Modo de usar: exemplo.com ajuda[-h] , busca[-s] \n FalhaSql[-q] , inurl[-u] , filetype[-f]")
 
 #utiliza $sqldorks
 def SqlDork(site):
@@ -64,17 +65,22 @@ def main():
         opts, args = getopt.getopt(sys.argv[2:], "hosdq")
         site = sys.argv[1]
         site = "inurl:"+site
+        if(site == '-h' or 'help' or '-help'):
+            argumentosPermitidos()
     except getopt.GetoptError as err:
-        # print help information and exit:
-        print(str(err)) # "option -a not recognized"
+        #     printa erro "option -X not recognized"
+        print(str(err))
         argumentosPermitidos()
         sys.exit(2)
     #   interacao entre os parametros encontrados
     #   vindos do input do usuario
     for o, a in opts:
         if o in ("-s"):
-            #site = "site:"+site
-            result_gcs(google_search(site, api_key, cse_id, num=1)) # $num sao os numeros de resultados
+            #    $site input de busca do usuario
+            #    $apikey chave necessaria para fazer requisicao ao google
+            #    $cse_id Mecanismo de busca customizado criado previamente na API do google
+            #    $num sao os numeros de resultados
+            result_gcs(google_search(site, api_key, cse_id, num=1))
         elif o in ("-h"):
             argumentosPermitidos()
             sys.exit()
