@@ -17,6 +17,11 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get install python3.6
 ```
+```sh
+Google API Client Libraries
+```
+
+pip install --upgrade google-api-python-client
 
 ## Como contribuir ?
 
