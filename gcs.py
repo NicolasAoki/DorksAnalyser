@@ -65,7 +65,7 @@ def argumentosPermitidos():
                                                    /____/                  
 """
     print(asci)
-    print("Modo de usar: exemplo.com ajuda[-h] , busca[-s] \n FalhaSql[-q] , FileDorks[-f], intextDorks[-i]")
+    print("Modo de usar: exemplo.com ajuda[-h] , busca[-s] \n FalhaSql[-q] , FileDorks[-f], intextDorks[-i], diretorioDorks[-d]")
 
 #utiliza $sqldorks
 def SqlDork(site):
@@ -107,10 +107,23 @@ def SecurityDorks(site):
         #    caso esteja vazio
         print(result)
 
+def DiretorioDorks(site):
+    #    faz a interecao do site
+    #    em cada item da array de Dork armazenada
+    for index in indexOf:
+        query = site +" "+ index
+        #    printa a query montada
+        #    site + query
+        print(query)
+        result = result_gcs(google_search(query, api_key, cse_id, num=1))
+        #    $result printa None
+        #    caso esteja vazio
+        print(result)
+
 def main():
     try:
         #     $args pega parametros a partir da segunda string
-        opts, args = getopt.getopt(sys.argv[2:], "hzsfq")
+        opts, args = getopt.getopt(sys.argv[2:], "hsfqid")
         site = sys.argv[1]
         site = "inurl:"+site
     except getopt.GetoptError as err:
@@ -136,6 +149,8 @@ def main():
             SecurityDorks(site)
         elif o in ("-q"):
             SqlDork(site)
+        elif o in ("-d"):
+            DiretorioDorks(site)
         else:
             assert False, "unhandled option"
 
