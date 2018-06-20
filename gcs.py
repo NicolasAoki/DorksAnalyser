@@ -3,8 +3,8 @@ import pprint
 from googleapiclient.discovery import build
 import getopt, sys
 
-api_key = "AIzaSyD4ePQSrWHZCsVRfuf1goOPgzFB9gJbhMM"
-cse_id = "017305337282449250408:jxmfygjffvs"
+api_key = ""
+cse_id = ""
 
 #http://fotohungarika.c3.hu/foto.php?mid=20&fi=1&l=1
 sqldorks = ('intext:"supplied argument is not a valid MySQL result resource" OR intext:"You have an error in your SQL syntax"',
@@ -18,7 +18,8 @@ sqldorks = ('intext:"supplied argument is not a valid MySQL result resource" OR 
 filedorks = ('intitle:"Index of" OR "Index of /backup"',
              'inurl:admin.php OR inurl:administrator.php OR inurl:cms.php ',
              '"# phpMyAdmin MySQL-Dump" "# Dumping data for table" "INSERT INTO" -"the" ext:sql ',
-             'file:crossdomain ext:xml')
+             'file:crossdomain ext:xml',
+             'filetype:env')
 
 securityDorks = ('intext: passwords filetype: txt',
                  'intext: account details filetype: txt',
